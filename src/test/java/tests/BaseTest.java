@@ -51,6 +51,6 @@ public class BaseTest {
     @Step("Закрытие")
     @AfterMethod()
     public void close() {
-        //    driver.quit();
+        driver.quit();
     }
 }
