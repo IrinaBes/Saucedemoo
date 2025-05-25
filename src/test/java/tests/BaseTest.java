@@ -31,15 +31,13 @@ public class BaseTest {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
             options.addArguments("--guest");
-            //options.addArguments("headless");
             driver = new ChromeDriver(options);
-        }
-        else if (browser.equalsIgnoreCase("edge")) {
+        } else if (browser.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
-            driver=new EdgeDriver();
+            driver = new EdgeDriver();
         }
 
-        driver.manage().timeouts().implicitlyWait( 6, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
         LoginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
@@ -53,6 +51,6 @@ public class BaseTest {
     @Step("Закрытие")
     @AfterMethod()
     public void close() {
-    //    driver.quit();
+        //    driver.quit();
     }
 }

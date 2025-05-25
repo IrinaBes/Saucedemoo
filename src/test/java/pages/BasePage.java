@@ -12,7 +12,7 @@ public abstract class BasePage {
     public static final String BASE_URL = PropertyReader.getProperty("saucedemoo.url");
 
     public BasePage(WebDriver driver) {
-        this.driver=driver;
-        wait=new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 }

@@ -31,17 +31,20 @@ public class ProductsPage extends BasePage {
     }
 
     @Step("Добавление товара в корзину")
-    public void addToCart(int index) {
+    public ProductsPage addToCart(int index) {
         driver.findElements(By.xpath("//*[text()='Add to cart']")).get(index).click();
+        return this;
     }
 
     @Step("Ожидаем прогрузки карточек товаров")
-    public void isOpen() {
+    public ProductsPage isOpen() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Add to cart']")));
+        return this;
     }
 
     @Step("Открытие корзины")
-    public void openCart() {
+    public ProductsPage openCart() {
         driver.findElement(By.xpath("//*[@data-test='shopping-cart-link']")).click();
+        return this;
     }
 }
