@@ -45,7 +45,6 @@ public class BaseTest {
         System.setProperty("BASE_URL", PropertyReader.getProperty("saucedemoo.url"));
         user = PropertyReader.getProperty("saucedemoo.user");
         password = PropertyReader.getProperty("saucedemoo.password");
-
     }
 
     @Step("Закрытие")
