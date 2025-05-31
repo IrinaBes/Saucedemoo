@@ -10,6 +10,8 @@ public class ProductsPage extends BasePage {
     private final By title2 = By.xpath("//*[text()='Products']");
     private static final String ADD_TO_CART_BUTTON_PATTERN
             = "//div[text()='%s']//ancestor::div[@class='inventory_item']//button";
+    private final By ADD_TO_CART_TEXT = By.xpath("//*[text()='Add to cart']");
+    private final By SHOPPING_CART_LINC = By.xpath("//*[@data-test='shopping-cart-link']");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -25,11 +27,6 @@ public class ProductsPage extends BasePage {
         return driver.findElement(title2).isDisplayed();
     }
 
-    public void addToCart(String goodsName) {
-        By addToCart = By.xpath(String.format(ADD_TO_CART_BUTTON_PATTERN, goodsName));
-        driver.findElement(addToCart).click();
-    }
-
     @Step("Добавление товара в корзину")
     public ProductsPage addToCart(int index) {
         driver.findElements(By.xpath("//*[text()='Add to cart']")).get(index).click();
@@ -38,13 +35,13 @@ public class ProductsPage extends BasePage {
 
     @Step("Ожидаем прогрузки карточек товаров")
     public ProductsPage isOpen() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Add to cart']")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ADD_TO_CART_TEXT));
         return this;
     }
 
     @Step("Открытие корзины")
     public ProductsPage openCart() {
-        driver.findElement(By.xpath("//*[@data-test='shopping-cart-link']")).click();
+        driver.findElement(SHOPPING_CART_LINC).click();
         return this;
     }
 }

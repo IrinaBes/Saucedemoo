@@ -15,8 +15,7 @@ public class AddGoodsToCartTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Owner("Savinova Irina iri311083@gmail.com")
     @Test(description = "Проверяем, что товары добавлены в корзину")
-    public void checkGoodsInCart() {
-        //productsPage.addToCart("Sauce Labs Backpack");
+    public void checkGoodsInCart () {
         LoginPage
                 .open()
                 .Login(withAdminPermission());
