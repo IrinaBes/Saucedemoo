@@ -29,7 +29,7 @@ public class ProductsPage extends BasePage {
 
     @Step("Добавление товара в корзину")
     public ProductsPage addToCart(int index) {
-        driver.findElements(By.xpath("//*[text()='Add to cart']")).get(index).click();
+        driver.findElements(ADD_TO_CART_TEXT).get(index).click();
         return this;
     }
 
